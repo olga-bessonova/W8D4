@@ -15,14 +15,19 @@ function Clock(){
   let date = new Date;
   //date.setTime(result_from_Date_getTime);
 
-  let seconds = date.getSeconds();
-  let minutes = date.getMinutes();
-  let hour = date.getHours();
-  this.time = `${hour}:${minutes}:${seconds}`
+  this.seconds = date.getSeconds();
+  this.minutes = date.getMinutes();
+  this.hour = date.getHours();
+  // this.time = `${this.hour}:${this.minutes}:${this.seconds}`
   
 };
 
 
 Clock.prototype.printTime = function() {
-  console.log(this.time)
+  return (`${this.hour}:${this.minutes}:${this.seconds}`);
 };
+
+Clock.prototype._tick = function () {
+  this.seconds += 1;
+  return this.printTime();
+}
